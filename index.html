@@ -7,7 +7,6 @@
   <title>From Talking to Singing | ICML 2026</title>
 
   <meta name="description" content="Official project page for the ICML 2026 paper: From Talking to Singing: A New Challenge for Audio-Visual Deepfake Detection." />
-  <meta name="keywords" content="ICML 2026, audio-visual deepfake detection, singing head deepfake, SHDF, T-AVFD, talking head, forgery detection" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -52,7 +51,9 @@
       </div>
 
       <div class="affiliations">
-        <p><sup>1</sup>Center for Future Media, School of Computer Science and Engineering, University of Electronic Science and Technology of China, Chengdu, China</p>
+        <p>
+          <sup>1</sup>Center for Future Media, School of Computer Science and Engineering, University of Electronic Science and Technology of China, Chengdu, China
+        </p>
       </div>
 
       <div class="action-buttons">
@@ -74,19 +75,7 @@
       </div>
 
       <p>
-        With rapid advances in audio-visual generative models, reliable forgery detection becomes increasingly critical.
-        Existing methods for audio-visual deepfake detection typically rely on cross-modal inconsistencies.
-        In singing, rhythmic vocalization weakens this coupling and introduces a nontrivial domain shift, substantially degrading detection performance.
-      </p>
-
-      <p>
-        We construct the Singing Head DeepFake dataset, namely <strong>SHDF</strong>, using rhythm-aware generative models to fill the gap in singing benchmarks.
-        To cope with cross-scenario domain shifts, we propose a <strong>Text-guided Audio-Visual Forgery Detection</strong> framework, namely <strong>T-AVFD</strong>, that generalizes across both talking and singing scenarios.
-      </p>
-
-      <p>
-        T-AVFD comprises a facial authenticity pattern learner and a multi-modal differential weight learning module.
-        Extensive experiments on multiple talking head deepfake datasets and SHDF show consistent improvements over existing baselines and strong robustness under diverse perturbations.
+      With rapid advances in audio-visual generative models, reliable forgery detection becomes increasingly critical. Existing methods for audio-visual deepfake detection typically rely on cross-modal inconsistencies. In singing, rhythmic vocalization weakens this coupling and introduces a nontrivial domain shift, substantially degrading detection performance. We construct the <strong>S</strong>inging <strong>H</strong>ead <strong>D</strong>eep<strong>F</strong>ake (SHDF) dataset using rhythm-aware generative models to fill the gap in singing benchmarks. To cope with cross-scenario domain shifts, we propose a <strong>T</strong>ext-guided <strong>A</strong>udio-<strong>V</strong>isual <strong>F</strong>orgery <strong>D</strong>etection (T-AVFD) framework that generalizes across both talking and singing scenarios. T-AVFD comprises a facial authenticity pattern learner and a multi-modal differential weight learning module. The pattern learner aligns facial features with multi-granularity textual descriptions to learn generalizable authenticity patterns. The weight learning module preserves intrinsic audio–visual consistency and adaptively integrates it with authenticity patterns via differential weighting. Extensive experiments on multiple talking head deepfake datasets and SHDF show consistent improvements over existing baselines and strong robustness under diverse perturbations.
       </p>
     </section>
 
@@ -96,17 +85,12 @@
         <h2>Method Overview</h2>
       </div>
 
-      <p>
-        The proposed T-AVFD framework learns generalizable facial authenticity patterns from textual guidance and adaptively integrates them with audio-visual alignment features.
-        This design helps the detector remain effective under the talking-to-singing domain shift.
-      </p>
-
-    <div class="figure-card pdf-card">
-      <iframe src="assets/method.pdf#toolbar=0&navpanes=0&scrollbar=0" title="T-AVFD method overview"></iframe>
-      <p class="caption">
-        Figure 1. Overview of the proposed T-AVFD framework. The face encoder is employed to extract semantic features from the facial region. Multi-granular text prompts, augmented with learnable tokens, are encoded into positive/negative embeddings that guide the model to learn generalized facial authenticity patterns. In parallel, visual and audio encoders from a pre-trained lip-reading model provide audio–visual alignment features. A weight generator and modality modulator then fuse the alignment features with the learned facial patterns to produce the final detection score.
-      </p>
-    </div>
+      <div class="figure-card">
+        <img src="assets/method.png" alt="T-AVFD method overview" />
+        <p class="caption">
+          Figure 1. <strong>Overview of the proposed T-AVFD framework.</strong> The face encoder is employed to extract semantic features from the facial region. Multi-granular text prompts, augmented with learnable tokens, are encoded into positive/negative embeddings that guide the model to learn generalized facial authenticity patterns. In parallel, visual and audio encoders from a pre-trained lip-reading model provide audio–visual alignment features. A weight generator and modality modulator then fuse the alignment features with the learned facial patterns to produce the final detection score.
+        </p>
+      </div>
     </section>
 
     <section id="dataset" class="section">
@@ -115,18 +99,12 @@
         <h2>SHDF Dataset</h2>
       </div>
 
-      <p>
-        SHDF is designed for singing head deepfake detection. It contains real singing videos and synthetic singing videos generated by rhythm-aware audio-visual generative models.
-        The benchmark enables controlled evaluation of whether detectors trained or developed for talking scenarios can generalize to singing scenarios.
-      </p>
-
-
-    <div class="figure-card pdf-card">
-      <iframe src="assets/dataset.pdf#toolbar=0&navpanes=0&scrollbar=0" title="SHDF dataset overview"></iframe>
-      <p class="caption">
-        Figure 2. SHDF dataset construction. We generate high-quality videos using audio-visual synthesis methods guided by musical rhythm and vocal prosody, resulting in expressive facial movements, natural head motion, and accurate lip synchronization.
-      </p>
-    </div>
+      <div class="figure-card">
+        <img src="assets/dataset.png" alt="SHDF dataset overview" />
+        <p class="caption">
+          Figure 2. <strong>SHDF dataset construction.</strong>strong> We generate high-quality videos using audio-visual synthesis methods guided by musical rhythm and vocal prosody, resulting in expressive facial movements, natural head motion, and accurate lip synchronization.
+        </p>
+      </div>
     </section>
 
     <section id="videos" class="section">
@@ -141,57 +119,65 @@
 
       <div class="video-grid">
         <div class="video-card">
-          <video controls muted playsinline preload="metadata">
+          <video controls muted playsinline preload="metadata" width="512" height="512">
             <source src="assets/videos/demo1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <p>Example 1</p>
         </div>
 
         <div class="video-card">
-          <video controls muted playsinline preload="metadata">
+          <video controls muted playsinline preload="metadata" width="512" height="512">
             <source src="assets/videos/demo2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <p>Example 2</p>
         </div>
 
         <div class="video-card">
-          <video controls muted playsinline preload="metadata">
+          <video controls muted playsinline preload="metadata" width="512" height="512">
             <source src="assets/videos/demo3.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <p>Example 3</p>
         </div>
 
         <div class="video-card">
-          <video controls muted playsinline preload="metadata">
+          <video controls muted playsinline preload="metadata" width="512" height="512">
             <source src="assets/videos/demo4.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <p>Example 4</p>
         </div>
 
         <div class="video-card">
-          <video controls muted playsinline preload="metadata">
+          <video controls muted playsinline preload="metadata" width="512" height="512">
             <source src="assets/videos/demo5.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <p>Example 5</p>
         </div>
 
         <div class="video-card">
-          <video controls muted playsinline preload="metadata">
+          <video controls muted playsinline preload="metadata" width="512" height="512">
             <source src="assets/videos/demo6.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <p>Example 6</p>
         </div>
 
         <div class="video-card">
-          <video controls muted playsinline preload="metadata">
+          <video controls muted playsinline preload="metadata" width="512" height="512">
             <source src="assets/videos/demo7.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <p>Example 7</p>
         </div>
 
         <div class="video-card">
-          <video controls muted playsinline preload="metadata">
+          <video controls muted playsinline preload="metadata" width="512" height="512">
             <source src="assets/videos/demo8.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
           <p>Example 8</p>
         </div>
@@ -204,11 +190,12 @@
         <h2>Citation</h2>
       </div>
 
-      <pre class="bibtex"><code>@inproceedings{liu2026fromtalkingtosinging,
+      <pre class="bibtex"><code>@inproceedings{liu2026from,
   title     = {From Talking to Singing: A New Challenge for Audio-Visual Deepfake Detection},
-  author    = {Liu, Ke and Wei, Jiwei and Zhang, Wenyu and Zhou, Shuchang and Chai, Ruikun and Dai, Yutao and Zhang, Chaoning and Yang, Yang},
-  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  author    = {Ke, Liu and Jiwei, Wei and Wenyu, Zhang and Shuchang, Zhou and Ruikun, Chai and Yutao, Dai and Chaoning, Zhang and Yang, Yang},
+  booktitle = {International Conference on Machine Learning},
   year      = {2026}
+  organization  =  {PMLR}
 }</code></pre>
     </section>
 
