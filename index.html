@@ -90,26 +90,6 @@
       </p>
     </section>
 
-    <section class="highlight-grid">
-      <div class="highlight-card">
-        <div class="number">01</div>
-        <h3>New Scenario</h3>
-        <p>We extend audio-visual deepfake detection from talking heads to singing heads.</p>
-      </div>
-
-      <div class="highlight-card">
-        <div class="number">02</div>
-        <h3>SHDF Dataset</h3>
-        <p>We introduce a singing-focused benchmark for evaluating cross-scenario generalization.</p>
-      </div>
-
-      <div class="highlight-card">
-        <div class="number">03</div>
-        <h3>T-AVFD</h3>
-        <p>We propose a text-guided audio-visual forgery detection framework with facial authenticity patterns.</p>
-      </div>
-    </section>
-
     <section id="method" class="section">
       <div class="section-header">
         <p class="section-kicker">Framework</p>
@@ -121,12 +101,12 @@
         This design helps the detector remain effective under the talking-to-singing domain shift.
       </p>
 
-      <div class="figure-card">
-        <img src="assets/method.png" alt="T-AVFD method overview" />
-        <p class="caption">
-          Figure 1. Overview of the proposed T-AVFD framework.
-        </p>
-      </div>
+    <div class="figure-card pdf-card">
+      <iframe src="assets/method.pdf#toolbar=0&navpanes=0&scrollbar=0" title="T-AVFD method overview"></iframe>
+      <p class="caption">
+        Figure 1. Overview of the proposed T-AVFD framework. The face encoder is employed to extract semantic features from the facial region. Multi-granular text prompts, augmented with learnable tokens, are encoded into positive/negative embeddings that guide the model to learn generalized facial authenticity patterns. In parallel, visual and audio encoders from a pre-trained lip-reading model provide audio–visual alignment features. A weight generator and modality modulator then fuse the alignment features with the learned facial patterns to produce the final detection score.
+      </p>
+    </div>
     </section>
 
     <section id="dataset" class="section">
@@ -140,31 +120,13 @@
         The benchmark enables controlled evaluation of whether detectors trained or developed for talking scenarios can generalize to singing scenarios.
       </p>
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <strong>2,600</strong>
-          <span>real singing videos</span>
-        </div>
-        <div class="stat-card">
-          <strong>3,000</strong>
-          <span>synthetic videos</span>
-        </div>
-        <div class="stat-card">
-          <strong>100</strong>
-          <span>identities for generation</span>
-        </div>
-        <div class="stat-card">
-          <strong>3</strong>
-          <span>selected generators</span>
-        </div>
-      </div>
 
-      <div class="figure-card">
-        <img src="assets/dataset.png" alt="SHDF dataset overview" />
-        <p class="caption">
-          Figure 2. Overview of the SHDF dataset construction and statistics.
-        </p>
-      </div>
+    <div class="figure-card pdf-card">
+      <iframe src="assets/dataset.pdf#toolbar=0&navpanes=0&scrollbar=0" title="SHDF dataset overview"></iframe>
+      <p class="caption">
+        Figure 2. SHDF dataset construction. We generate high-quality videos using audio-visual synthesis methods guided by musical rhythm and vocal prosody, resulting in expressive facial movements, natural head motion, and accurate lip synchronization.
+      </p>
+    </div>
     </section>
 
     <section id="videos" class="section">
