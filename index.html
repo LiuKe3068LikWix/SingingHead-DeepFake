@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>From Talking to Singing | ICML 2026</title>
+
+  <meta name="description" content="Official project page for the ICML 2026 paper: From Talking to Singing: A New Challenge for Audio-Visual Deepfake Detection." />
+  <meta name="keywords" content="ICML 2026, audio-visual deepfake detection, singing head deepfake, SHDF, T-AVFD, talking head, forgery detection" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="top-nav">
+    <div class="nav-inner">
+      <div class="brand">SingingHead-Deepfake</div>
+      <nav>
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#videos">Videos</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section class="hero">
+      <div class="badge">ICML 2026</div>
+
+      <h1>
+        From Talking to Singing:
+        <span>A New Challenge for Audio-Visual Deepfake Detection</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Official project page for our ICML 2026 paper on singing head deepfake detection.
+      </p>
+
+      <div class="authors">
+        <span>Ke Liu<sup>1</sup></span>
+        <span>Jiwei Wei<sup>1</sup></span>
+        <span>Wenyu Zhang<sup>1</sup></span>
+        <span>Shuchang Zhou<sup>1</sup></span>
+        <span>Ruikun Chai<sup>1</sup></span>
+        <span>Yutao Dai<sup>1</sup></span>
+        <span>Chaoning Zhang<sup>1</sup></span>
+        <span>Yang Yang<sup>1</sup></span>
+      </div>
+
+      <div class="affiliations">
+        <p><sup>1</sup>Center for Future Media, School of Computer Science and Engineering, University of Electronic Science and Technology of China, Chengdu, China</p>
+      </div>
+
+      <div class="action-buttons">
+        <a class="btn primary" href="#" target="_blank" rel="noopener">Paper</a>
+        <a class="btn dark" href="#" target="_blank" rel="noopener">Code</a>
+        <a class="btn green" href="#" target="_blank" rel="noopener">Dataset</a>
+        <a class="btn purple" href="#" target="_blank" rel="noopener">Supplementary</a>
+      </div>
+
+      <div class="hero-note">
+        SHDF Dataset · T-AVFD Framework · Audio-Visual Deepfake Detection
+      </div>
+    </section>
+
+    <section id="abstract" class="section">
+      <div class="section-header">
+        <p class="section-kicker">Overview</p>
+        <h2>Abstract</h2>
+      </div>
+
+      <p>
+        With rapid advances in audio-visual generative models, reliable forgery detection becomes increasingly critical.
+        Existing methods for audio-visual deepfake detection typically rely on cross-modal inconsistencies.
+        In singing, rhythmic vocalization weakens this coupling and introduces a nontrivial domain shift, substantially degrading detection performance.
+      </p>
+
+      <p>
+        We construct the Singing Head DeepFake dataset, namely <strong>SHDF</strong>, using rhythm-aware generative models to fill the gap in singing benchmarks.
+        To cope with cross-scenario domain shifts, we propose a <strong>Text-guided Audio-Visual Forgery Detection</strong> framework, namely <strong>T-AVFD</strong>, that generalizes across both talking and singing scenarios.
+      </p>
+
+      <p>
+        T-AVFD comprises a facial authenticity pattern learner and a multi-modal differential weight learning module.
+        Extensive experiments on multiple talking head deepfake datasets and SHDF show consistent improvements over existing baselines and strong robustness under diverse perturbations.
+      </p>
+    </section>
+
+    <section class="highlight-grid">
+      <div class="highlight-card">
+        <div class="number">01</div>
+        <h3>New Scenario</h3>
+        <p>We extend audio-visual deepfake detection from talking heads to singing heads.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="number">02</div>
+        <h3>SHDF Dataset</h3>
+        <p>We introduce a singing-focused benchmark for evaluating cross-scenario generalization.</p>
+      </div>
+
+      <div class="highlight-card">
+        <div class="number">03</div>
+        <h3>T-AVFD</h3>
+        <p>We propose a text-guided audio-visual forgery detection framework with facial authenticity patterns.</p>
+      </div>
+    </section>
+
+    <section id="method" class="section">
+      <div class="section-header">
+        <p class="section-kicker">Framework</p>
+        <h2>Method Overview</h2>
+      </div>
+
+      <p>
+        The proposed T-AVFD framework learns generalizable facial authenticity patterns from textual guidance and adaptively integrates them with audio-visual alignment features.
+        This design helps the detector remain effective under the talking-to-singing domain shift.
+      </p>
+
+      <div class="figure-card">
+        <img src="assets/method.png" alt="T-AVFD method overview" />
+        <p class="caption">
+          Figure 1. Overview of the proposed T-AVFD framework.
+        </p>
+      </div>
+    </section>
+
+    <section id="dataset" class="section">
+      <div class="section-header">
+        <p class="section-kicker">Benchmark</p>
+        <h2>SHDF Dataset</h2>
+      </div>
+
+      <p>
+        SHDF is designed for singing head deepfake detection. It contains real singing videos and synthetic singing videos generated by rhythm-aware audio-visual generative models.
+        The benchmark enables controlled evaluation of whether detectors trained or developed for talking scenarios can generalize to singing scenarios.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <strong>2,600</strong>
+          <span>real singing videos</span>
+        </div>
+        <div class="stat-card">
+          <strong>3,000</strong>
+          <span>synthetic videos</span>
+        </div>
+        <div class="stat-card">
+          <strong>100</strong>
+          <span>identities for generation</span>
+        </div>
+        <div class="stat-card">
+          <strong>3</strong>
+          <span>selected generators</span>
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <img src="assets/dataset.png" alt="SHDF dataset overview" />
+        <p class="caption">
+          Figure 2. Overview of the SHDF dataset construction and statistics.
+        </p>
+      </div>
+    </section>
+
+    <section id="videos" class="section">
+      <div class="section-header">
+        <p class="section-kicker">Visualization</p>
+        <h2>Generated Video Examples</h2>
+      </div>
+
+      <p>
+        We show eight representative synthesized singing-head video examples below.
+      </p>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/videos/demo1.mp4" type="video/mp4" />
+          </video>
+          <p>Example 1</p>
+        </div>
+
+        <div class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/videos/demo2.mp4" type="video/mp4" />
+          </video>
+          <p>Example 2</p>
+        </div>
+
+        <div class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/videos/demo3.mp4" type="video/mp4" />
+          </video>
+          <p>Example 3</p>
+        </div>
+
+        <div class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/videos/demo4.mp4" type="video/mp4" />
+          </video>
+          <p>Example 4</p>
+        </div>
+
+        <div class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/videos/demo5.mp4" type="video/mp4" />
+          </video>
+          <p>Example 5</p>
+        </div>
+
+        <div class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/videos/demo6.mp4" type="video/mp4" />
+          </video>
+          <p>Example 6</p>
+        </div>
+
+        <div class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/videos/demo7.mp4" type="video/mp4" />
+          </video>
+          <p>Example 7</p>
+        </div>
+
+        <div class="video-card">
+          <video controls muted playsinline preload="metadata">
+            <source src="assets/videos/demo8.mp4" type="video/mp4" />
+          </video>
+          <p>Example 8</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="citation" class="section">
+      <div class="section-header">
+        <p class="section-kicker">Reference</p>
+        <h2>Citation</h2>
+      </div>
+
+      <pre class="bibtex"><code>@inproceedings{liu2026fromtalkingtosinging,
+  title     = {From Talking to Singing: A New Challenge for Audio-Visual Deepfake Detection},
+  author    = {Liu, Ke and Wei, Jiwei and Zhang, Wenyu and Zhou, Shuchang and Chai, Ruikun and Dai, Yutao and Zhang, Chaoning and Yang, Yang},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  year      = {2026}
+}</code></pre>
+    </section>
+
+    <footer class="footer">
+      <p>
+        © 2026 SingingHead-Deepfake. This project page is for academic research presentation.
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>
